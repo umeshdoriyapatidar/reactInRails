@@ -27,7 +27,6 @@ class Users::SessionsController < Devise::SessionsController
   private
 
   def respond_with(resource, _opts = {})
-    byebug
     render json: {
       status: { code: 209, message: 'Logged in successfully.' },
       data: resource

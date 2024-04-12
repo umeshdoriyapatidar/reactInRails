@@ -9,7 +9,7 @@ Things you may want to cover:
 
 * Rails version: 7.1.2
 
-* yarn 
+* Install yarn
 
 * Step to run Application 
   
@@ -18,5 +18,5 @@ Things you may want to cover:
  3. Run // rails db:migrate
  4. Run // rails server
 
- for dev running dev server:
+ For running dev server:
   Run // ./bin/shakapacker-dev-server

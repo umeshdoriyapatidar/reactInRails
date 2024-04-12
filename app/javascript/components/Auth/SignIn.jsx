@@ -14,15 +14,17 @@ const SignIn = () => {
       try {
         const response = await axios.post(`/users/sign_in`, { user }, { headers: { 'Content-Type': 'application/json', 'X-CSRF-Token': csrfToken } });
   
-        if(!response.error){
+        if(response.status === 200){
           response.data;
+          localStorage.setItem('currentUserId', response.data.data.id)
           navigate('/')
-        return response;
         }else {
-          throw response.data.status
+          throw response.status.message
         }
       } catch (error) {
-        throw error;
+         console.log(error.response.message);
+         if(error.response.status == 422){
+         alert("Check Credentials please or Sign Up")}
       }
   };
 

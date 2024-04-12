@@ -12,15 +12,18 @@ const SignUp = () => {
         password: formData["password"]
       }
     try {
-      const response = await axios.post(`/users`, { user }, { headers: { 'Content-Type': 'application/json', 'X-CSRF-Token': csrfToken } });
+      const response = await axios.post(`/users/sign_up`, { user }, { headers: { 'Content-Type': 'application/json', 'X-CSRF-Token': csrfToken } });
 
-      if(!response.error){
+      if(response.status == 200){
+        // localStorage.setItem('currentUserId', response.data.data.id)
         navigate("/")
       }else {
         throw response.data.status
       }
     } catch (error) {
-      throw error;
+      console.log(error.response.message);
+      if(error.response.status == 422){
+      alert("Please Add Proper Value to the field")}
     }
   };
 

@@ -5,20 +5,18 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version: 3.0.2
 
-* System dependencies
+* Rails version: 7.1.2
 
-* Configuration
+* yarn 
 
-* Database creation
+* Step to run Application 
+  
+ 1. Run // bundle install
+ 2. Run // yarn install
+ 3. Run // rails db:migrate
+ 4. Run // rails server
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+ for dev running dev server:
+  Run // ./bin/shakapacker-dev-server

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import { Link } from 'react-router-dom';
 const Form = ({ onSubmit, buttonText }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -9,7 +9,7 @@ const Form = ({ onSubmit, buttonText }) => {
     onSubmit({ email, password });
   };
 
-  return (
+  return (<>
     <form onSubmit={handleSubmit} className="p-3">
       <div className="form-group">
         <label htmlFor="email">Email address</label>
@@ -25,6 +25,9 @@ const Form = ({ onSubmit, buttonText }) => {
       </div>
       <button type="submit" className="btn btn-primary mt-3">{buttonText}</button>
     </form>
+    <br/>
+    <h1>Go to home page:  <Link to="/" className="btn btn-secondary mt-3">Home</Link></h1>
+    </>
   );
 };
 

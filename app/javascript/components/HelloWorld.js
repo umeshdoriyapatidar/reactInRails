@@ -4,7 +4,7 @@ import PropTypes from "prop-types"
 const HelloWorld = (props) => {
   return (
     <React.Fragment>
-       Umesh is Greeting: {props.greeting}
+      Reload once after singup: {props.greeting}
     </React.Fragment>
   )
 }

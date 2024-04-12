@@ -27,26 +27,17 @@ class Users::SessionsController < Devise::SessionsController
   private
 
   def respond_with(resource, _opts = {})
-    render json: {
-      status: { code: 209, message: 'Logged in successfully.' },
-      data: resource
-      },
-      status: :ok
-  end
-
-  def respond_to_on_destroy
     if current_user
       render json: {
-        status: 209,
-        message: "logged out successfully"
-      },
-      status: :ok
+        data: current_user
+        },
+        status: 200
     else
       render json: {
-        status: 491,
-        message: "Couldn't find an active session."
+        status: 401,
+        message: "."
       },
-      status: :unauthorized
+      status: 202
     end
   end
 end

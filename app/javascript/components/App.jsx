@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState , useEffect} from 'react';
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import {Home, NotFound, SignIn, SignOut, SignUp, AddPost, ListPost} from './Index.js';
 
 
 const App = (props) => {
-
   if(props){
     console.log(props.id);
     localStorage.setItem('currentUserId', props.id)

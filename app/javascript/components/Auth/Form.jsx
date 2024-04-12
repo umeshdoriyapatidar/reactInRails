@@ -10,22 +10,20 @@ const Form = ({ onSubmit, buttonText }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="email"
-        placeholder="Email"
-        value={email}
+    <form onSubmit={handleSubmit} className="p-3">
+      <div className="form-group">
+        <label htmlFor="email">Email address</label>
+        <input type="email" className="form-control" id="email" placeholder="Enter email" value={email}
         onChange={(e) => setEmail(e.target.value)}
-        required
-      />
-      <input
-        type="password"
-        placeholder="Password"
-        value={password}
+        required />
+      </div>
+      <div className="form-group">
+        <label htmlFor="password">Password</label>
+        <input type="password" className="form-control" id="password" placeholder="Password"  value={password}
         onChange={(e) => setPassword(e.target.value)}
-        required
-      />
-      <button type="submit">{buttonText}</button>
+        required />
+      </div>
+      <button type="submit" className="btn btn-primary mt-3">{buttonText}</button>
     </form>
   );
 };

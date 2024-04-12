@@ -5,6 +5,8 @@ import SignUp from './Auth/SignUp'
 import Form from './Auth/Form'
 import Home from './Home'
 import NotFound from './NotFound'
+import AddPost from './AddPost'
+import ListPost from './ListPost'
 export {
     SignIn,
     SignOut,
@@ -12,4 +14,6 @@ export {
     Form,
     Home,
     NotFound,
+    AddPost,
+    ListPost
 }

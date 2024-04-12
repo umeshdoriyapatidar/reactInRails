@@ -1,19 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
-import {Home, NotFound, SignIn, SignOut, SignUp} from './Index.js';
+import {Home, NotFound, SignIn, SignOut, SignUp, AddPost, ListPost} from './Index.js';
+
 
 const App = (props) => {
+
+  if(props){
+    console.log(props.id);
+    localStorage.setItem('currentUserId', props.id)
+  }
   return (
     <React.Fragment>
-     {console.log(props)}
-     <h1> This is Something I am missing {props.user}</h1>
-     
       <Router>
         <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/sign_in" element={<SignIn />} />
-        <Route path="/sign_out" element={<SignOut />} />
-        <Route path="/sign_up" element={<SignUp />} />
+        <Route path="/" element={<Home/>} />
+        <Route path="/users/sign_in" element={<SignIn />} />
+        <Route path="/users/sign_up" element={<SignUp />} />
+        <Route path="/addpost" element={<AddPost />} />
+        <Route path='/posts' element={<ListPost />}/>
         <Route element={<NotFound />} />
         </Routes>
       </Router>

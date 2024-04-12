@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import Form from './Form';
 import axios from 'axios';
-
+const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
 const SignIn = () => {
   const navigate = useNavigate();
@@ -12,7 +12,7 @@ const SignIn = () => {
         password: formData["password"]
       }
       try {
-        const response = await axios.post(`/login`, { user }, { headers: { 'Content-Type': 'application/json' } });
+        const response = await axios.post(`/users/sign_in`, { user }, { headers: { 'Content-Type': 'application/json', 'X-CSRF-Token': csrfToken } });
   
         if(!response.error){
           response.data;
@@ -27,9 +27,13 @@ const SignIn = () => {
   };
 
   return (
-    <div>
-      <h1>Sign In</h1>
-      <Form onSubmit={handleSignIn} buttonText="Sign In" />
+    <div className="container">
+      <div className="row justify-content-center">
+        <div className="col-md-6">
+          <h2 className="text-center mb-4">Sign In</h2>
+            <Form onSubmit={handleSignIn} buttonText="Sign In" />
+        </div>
+      </div>
     </div>
   );
 };
